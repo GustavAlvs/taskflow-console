@@ -64,6 +64,7 @@ public class TaskManagerTests
         Assert.False(result);
     }
 
+    
     [Fact]
     public void RemoveTask_ShouldReturnFalseForMissingId()
     {
@@ -72,5 +73,15 @@ public class TaskManagerTests
         var result = manager.RemoveTask(999);
 
         Assert.False(result);
+    }
+
+    [Fact]
+    public void GetTaskById_ShouldReturnNullForMissingId()
+    {
+        var manager = new TaskManager();
+
+        var task = manager.GetTaskById(999);
+
+        Assert.Null(task);
     }
 }
